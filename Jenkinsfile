@@ -3,7 +3,7 @@ pipeline {
 	stages{
 		stage('1-clonecode'){
 			steps{
-			sh 'echo "welcome to jenkins demo"'
+			checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-credentials', url: 'https://github.com/etechstaff/2steps-pipeline-project.git']])
 			}
 		}
 		stage('2-currently running processes'){
